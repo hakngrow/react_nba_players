@@ -5,4 +5,6 @@
 3. Edit player details
 4. Display a list of available players
 
-### 
+### Wireframing the UI
+![Wireframing the UI](/public/images/wireframe.jpg)
+
