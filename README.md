@@ -23,7 +23,77 @@ The CRUD app will have 2 left/right sections. The left side will be a data entry
 ```
 
 ### Players Table component
-
+We define the `PlayersTable.js` component in the `src\components` directory.  It accepts 3 properties from the `App.js` parent, a list of players and the callback functions for the edit and delete buttons.  Before rendering, we check and display the table only if there are players in the list.
+```
+    <tbody>
+      {props.players.length > 0 ? (
+        props.players.map((player) => (
+          <tr key={player.id}>
+            <td>{player.name}</td>
+            <td>{player.number}</td>
+            <td>{player.team}</td>
+            <td>
+              <button
+                onClick={() => {
+                  props.editPlayer(player);
+                }}
+                className="button muted-button"
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => props.deletePlayer(player.id)}
+                className="button muted-button"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
+        ))
+      ) : (
+        <tr>
+          <td colSpan={3}>No players</td>
+        </tr>
+      )}
+    </tbody>
 ```
 
+In this exercise, we can create and use a random data set locally.  In a subsequent MERN stack exercise, we will attempt to interact with a cloud based Mongo Atlas database.
+We declare a random data store and assign it to a state variable `players`.
+
 ```
+  const playersData = [
+    { id: 1, name: "Stephen Curry", number: "30", team: "Golden State Warriors" },
+    { id: 2, name: "Lebron James", number: "6", team: "L.A. Lakers" },
+    { id: 3, name: "Jimmy Bulter", number: "22", team: "Miami Heat" },
+  ];
+  
+  const [players, setPlayers] = useState(playersData);
+```
+
+With both the data and component defined, we can use the `PlayerTable` component in `App.js` by  importing it, and passing to it the `players` state variable.  The `editPlayer` and `deletePlayer` callback functions does nothing now, we will get to them later.
+
+```
+import PlayersTable from "./components/PlayersTable";
+...
+      <div className="flex-row">
+        <div className="flex-large">
+          <div>
+            <h2>Add Player</h2>
+          </div>
+        </div>
+        <div className="flex-large">
+          <h2>View Players</h2>
+          <PlayersTable
+            players={players}
+            editPlayer={}
+            deletePlayer={}
+          />
+        </div>
+      </div>
+```
+With the basic UI setup done, we can proceed to add other functions to the app.
+![Basic UI of app](/public/images/players_table.jpg)
+
+
+
