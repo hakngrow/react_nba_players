@@ -8,19 +8,18 @@
 ### Wireframing the app UI
 ![Wireframing the UI](/public/images/wireframe.jpg)
 
-The CRUD app will have 2 left/right sections. The left side will be a data entry form for adding and updating player details.  The right side will be a listing of available players.  Each row of the players table will have action buttons to edit or delete the player.
+The CRUD app will have 2 left/right sections. The left side will be a data entry form for adding and updating player details.  The right side will be a listing of available players.  Each row of the players table will have action buttons to edit or delete the player.  We can define this in `App.js` as below.
 ```
-<div className="container">
-      <h1>NBA Players - CRUD App with React Hooks and components</h1>
       <div className="flex-row">
+        // Left side - Data entry form
         <div className="flex-large">
           <h2>Add Player</h2>
         </div>
+        // Right side - List of players
         <div className="flex-large">
           <h2>View Players</h2>
         </div>
       </div>
-    </div>
 ```
 
 ### Players Table component
