@@ -165,3 +165,6 @@ When the 'Delete' button is clicked, the `onClick` event handler invokes the `de
               </button>
 ```
 
+### Updating a player
+
+Updating a player will be similar to adding a player, except we need to identify the player selected for editing.  We will structure the app such that when the 'Edit' button for a player is clicked, an edit player form will replace the add player form, with text input fields populated with the player's data.  The user can then choose to cancel the edit mode, or submit the changes, which will end the edit mode and update the players list in the `App` component.
