@@ -271,4 +271,14 @@ So at this point, clicking the 'Edit' button should toggle the edit mode on and 
 
 ![Edit player form](/public/images/edit_player.jpg)
 
+### Using the `useEffect` hook
+
 There one more issue with editing a player. If you start editing one player, then try to switch to another player, the edit form still displays data from the first player. This is because although the `currentPlayer` state in `App.js` has changed, it has not been registered down to the `props` of the `EditPlayerForm.js` component.
+
+To rectify this issue, we use the `useEffect` hook to update the `player` state variable whenever there is a change to `props`.
+
+```
+  useEffect(() => {
+    setPlayer(props.currentPlayer);
+  }, [props]);
+```
