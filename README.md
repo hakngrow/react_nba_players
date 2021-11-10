@@ -244,3 +244,25 @@ Now we can bring the edit form into `App.js`, and create a toggle that switches 
 ```
 import EditPlayerForm from "./components/EditPlayerForm";
 ```
+
+To create the toggle, we use a ternary operation to check if the `editing` state variable is `true`. If `true`, show the edit form. If `false`, show the add form.
+
+```
+        <div className="flex-large">
+          {editing ? (
+            <div>
+              <h2>Edit Player</h2>
+              <EditPlayerForm
+                setEditing={setEditing}
+                currentPlayer={currentPlayer}
+                updatePlayer={updatePlayer}
+              />
+            </div>
+          ) : (
+            <div>
+              <h2>Add Player</h2>
+              <AddPlayerForm addPlayer={addPlayer} />
+            </div>
+          )}
+        </div>
+```
