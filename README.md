@@ -183,7 +183,7 @@ const defaultValues = { id: null, name: "", number: "", team: "" };
 const [currentPlayer, setCurrentPlayer] = useState(defaultValues);
 ```
 
-When the 'Edit' button of a player is clicked, we should turn on edit mode via the `editing` state variable, and store the selected player in `currentPlayer`.
+When the 'Edit' button of a player is clicked, we should turn on edit mode by setting the `editing` state variable to `true`, and store the selected player in `currentPlayer`.
 
 ```
   const editPlayer = (player) => {
@@ -196,4 +196,27 @@ When the 'Edit' button of a player is clicked, we should turn on edit mode via t
       team: player.team,
     });
   };
+```
+
+Like in deleting a player, we pass this function to the `PlayersTable` component via `props`.
+
+```
+          <PlayersTable
+            players={players}
+            editPlayer={editPlayer}
+            deletePlayer={deletePlayer}
+          />
+```
+
+In the `PlayersTable` component, we want to call this function via `props`, passing it the player selected for edit.
+
+```
+              <button
+                onClick={() => {
+                  props.editPlayer(player);
+                }}
+                className="button muted-button"
+              >
+                Edit
+              </button>
 ```
