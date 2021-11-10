@@ -168,3 +168,32 @@ When the 'Delete' button is clicked, the `onClick` event handler invokes the `de
 ### Updating a player
 
 Updating a player will be similar to adding a player, except we need to identify the player selected for editing.  We will structure the app such that when the 'Edit' button for a player is clicked, an edit player form will replace the add player form, with text input fields populated with the player's data.  The user can then choose to cancel the edit mode, or submit the changes, which will end the edit mode and update the players list in the `App` component.
+
+In `App.js`, we need a state variable to keep track of whether the app is in edit mode.  The `editing` state variable defaults to `false`.
+
+```
+const [editing, setEditing] = useState(false);
+```
+
+In order to track the selected player for editing, we create another state variable `currentPlayer` and initialize it to some default values.
+
+```
+const defaultValues = { id: null, name: "", number: "", team: "" };
+
+const [currentPlayer, setCurrentPlayer] = useState(defaultValues);
+```
+
+When the 'Edit' button of a player is clicked, we should turn on edit mode via the `editing` state variable, and store the selected player in `currentPlayer`.
+
+```
+  const editPlayer = (player) => {
+    setEditing(true);
+
+    setCurrentPlayer({
+      id: player.id,
+      name: player.name,
+      number: player.number,
+      team: player.team,
+    });
+  };
+```
