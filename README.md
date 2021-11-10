@@ -121,7 +121,7 @@ We handle changes to all 3 text input fields using a common event handler functi
   };
 ```
 
-When a user clicks on the 'Add new player' button: We will:
+When a user clicks on the 'Add new player' button, we will:
 1. Prevent the default form submission
 2. Check for empty values
 3. Add the new player to the player listing in `App.js` via the callback function passed in `props` 
@@ -140,6 +140,13 @@ When a user clicks on the 'Add new player' button: We will:
 
 ### Deleting a player
 
+Deleting a player is handled by the `deletePlayer` function.
 
+```
+  const deletePlayer = (id) => {
+    setPlayers(players.filter((player) => player.id !== id));
+    setEditing(false);
+  };
+```
 
 
