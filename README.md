@@ -99,6 +99,8 @@ With the basic UI setup done, we can proceed to add other functions to the app.
 
 ### Adding a new player
 
+We define the data entry form for adding a new player in `src\components\AddPlayerForm.js`.  The form consist of text input fields for the player's name, jersey number and team name, and a submit button as below. 
+
 ```
 const AddPlayerForm = (props) => {
 
