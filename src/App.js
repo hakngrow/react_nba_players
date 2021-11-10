@@ -43,7 +43,12 @@ const App = () => {
   const editPlayer = (player) => {
     setEditing(true);
 
-    setCurrentPlayer({ id: player.id, name: player.name, number: player.number, team: player.team });
+    setCurrentPlayer({
+      id: player.id,
+      name: player.name,
+      number: player.number,
+      team: player.team,
+    });
   };
 
   return (
