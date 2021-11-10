@@ -266,3 +266,7 @@ To create the toggle, we use a ternary operation to check if the `editing` state
           )}
         </div>
 ```
+
+So at this point, clicking the 'Edit' button should toggle the edit mode on and display the edit player form.
+
+![Edit player form](/public/images/edit_player.jpg)
