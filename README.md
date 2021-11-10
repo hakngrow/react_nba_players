@@ -220,3 +220,15 @@ In `PlayersTable.js`, when a player's 'Edit' button is clicked, we want to call 
           Edit
         </button>
 ```
+
+Back in `App.js`, we create a function that updates the players list with the changed player data.  The `updatePlayer` function takes 2 parameters, the `id` of the updated player and the updated player object.  After updating the players list, we exit the edit mode by setting the state variable `editing` to `false`.
+
+```
+        const updatePlayer = (id, updatedPlayer) => {
+          setEditing(false);
+
+          setPlayers(
+            players.map((player) => (player.id === id ? updatedPlayer : player))
+          );
+        };
+```
