@@ -148,4 +148,20 @@ Deleting a player is handled by the `deletePlayer` function.  The function 'filt
   };
 ```
 
+We pass the function through `props` to the `PlayerTable` component.
+
+```
+<PlayersTable players={players} deletePlayer={deletePlayer} />
+```
+
+When the 'Delete' button is clicked, the `onClick` event handler invokes the `deletePlayer` function via `props`.
+
+```
+              <button
+                onClick={() => props.deletePlayer(player.id)}
+                className="button muted-button"
+              >
+                Delete
+              </button>
+```
 
