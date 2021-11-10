@@ -232,3 +232,5 @@ Back in `App.js`, we create a function that updates the players list with the ch
           );
         };
 ```
+
+Next we'll define the edit form in `src\components\EditPlayerForm.js`. The edit form is mostly similar to the add form, except the state of the form is set via `currentPlayer` from `props`, and there is a cancel edit button.
