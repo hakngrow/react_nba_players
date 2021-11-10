@@ -101,23 +101,45 @@ With the basic UI setup done, we can proceed to add other functions to the app.
 
 We define the data entry form for adding a new player in `src\components\AddPlayerForm.js`.  The form consist of text input fields for the player's name, jersey number and team name, and a submit button as below. 
 
-```
-const AddPlayerForm = (props) => {
-
-  return (
-    <form>
-      <label>Name</label>
-      <input type="text" name="name"/>
-      <label>Number</label>
-      <input type="text" name="number"/>
-      <label>Team</label>
-      <input type="text" name="team"/>
-      <button>Add new player</button>
-    </form>
-  );
-};
-```
 ![Basic add player form](/public/images/add_player.jpg)
+
+We use a `player` state variable to store the values of the text input fields.  We will also use a `defaultValues` object to initialize the state of the form on first render and everytime after a submit. 
+
+```
+  const defaultValues = { id: null, name: "", number: "", team: "" };
+
+  const [player, setPlayer] = useState(defaultValues);
+```
+
+We handle changes to all 3 text input fields using a common event handler function.  The function extracts the source and changed value, and updates the form state variable `player`.
+
+```
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+
+    setPlayer({ ...player, [name]: value });
+  };
+```
+
+When a user clicks on the 'Add new player' button: We will:
+1. Prevent the default form submission
+2. Check for empty values
+3. Add the new player to the player listing in `App.js` via the callback function passed in `props` 
+
+```
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+        if (!player.name || !player.number || !player.team) return;
+
+        props.addPlayer(player);
+        setPlayer(defaultValues);
+      }}
+    >
+```
+
+### Deleting a player
+
 
 
 
