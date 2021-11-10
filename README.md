@@ -270,3 +270,5 @@ To create the toggle, we use a ternary operation to check if the `editing` state
 So at this point, clicking the 'Edit' button should toggle the edit mode on and display the edit player form.
 
 ![Edit player form](/public/images/edit_player.jpg)
+
+There one more issue with editing a player. If you start editing one player, then try to switch to another player, the edit form still displays data from the first player. This is because although the `currentPlayer` state in `App.js` has changed, it has not been registered down to the `props` of the `EditPlayerForm.js` component.
