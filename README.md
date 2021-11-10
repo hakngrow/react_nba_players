@@ -92,8 +92,30 @@ import PlayersTable from "./components/PlayersTable";
         </div>
       </div>
 ```
+
 With the basic UI setup done, we can proceed to add other functions to the app.
+
 ![Basic UI of app](/public/images/players_table.jpg)
+
+### Adding a new player
+
+```
+const AddPlayerForm = (props) => {
+
+  return (
+    <form>
+      <label>Name</label>
+      <input type="text" name="name"/>
+      <label>Number</label>
+      <input type="text" name="number"/>
+      <label>Team</label>
+      <input type="text" name="team"/>
+      <button>Add new player</button>
+    </form>
+  );
+};
+```
+![Basic add player form](/public/images/add_player.jpg)
 
 
 
