@@ -140,12 +140,11 @@ When a user clicks on the 'Add new player' button, we will:
 
 ### Deleting a player
 
-Deleting a player is handled by the `deletePlayer` function.
+Deleting a player is handled by the `deletePlayer` function.  The function 'filters' out the player to be deleted based on the `id` and updates the `players` state variable with the new list of players.
 
 ```
   const deletePlayer = (id) => {
     setPlayers(players.filter((player) => player.id !== id));
-    setEditing(false);
   };
 ```
 
