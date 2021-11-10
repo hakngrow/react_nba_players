@@ -208,15 +208,15 @@ Like in deleting a player, we pass this function to the `PlayersTable` component
           />
 ```
 
-In the `PlayersTable` component, we want to call this function via `props`, passing it the player selected for edit.
+In `PlayersTable.js`, when a player's 'Edit' button is clicked, we want to call this function via `props`, passing it the player selected for edit.
 
 ```
-              <button
-                onClick={() => {
-                  props.editPlayer(player);
-                }}
-                className="button muted-button"
-              >
-                Edit
-              </button>
+        <button
+          onClick={() => {
+            props.editPlayer(player);
+          }}
+          className="button muted-button"
+        >
+          Edit
+        </button>
 ```
