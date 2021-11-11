@@ -293,3 +293,9 @@ The last issue is that when editing a player, you can delete the player from the
     setEditing(false);
   };
 ```
+
+### Setup & run
+
+`npm install` dependencies
+
+`npm start` to run
