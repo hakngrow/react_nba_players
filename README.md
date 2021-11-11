@@ -273,7 +273,7 @@ So at this point, clicking the 'Edit' button should toggle the edit mode on and 
 
 ### Using the `useEffect` hook
 
-There one more issue with editing a player. If you start editing one player, then try to switch to another player, the edit form still displays data from the first player. This is because although the `currentPlayer` state in `App.js` has changed, it has not been registered down to the `props` of the `EditPlayerForm.js` component.
+There one more issue with editing a player. If you start editing one player, then try to switch to another player, the edit form still displays data from the first player. This is because although the `currentPlayer` state in `App.js` has changed, but it has not been registered down to the `props` of the `EditPlayerForm.js` component.
 
 To rectify this issue, we use the `useEffect` hook to update the `player` state variable whenever there is a change to `props`.
 
@@ -281,4 +281,15 @@ To rectify this issue, we use the `useEffect` hook to update the `player` state 
   useEffect(() => {
     setPlayer(props.currentPlayer);
   }, [props]);
+```
+
+### Deleting a player in edit mode
+
+The last issue is that when editing a player, you can delete the player from the `PlayersTable` but the player's data will still be on the `EditPlayerForm`.  To resovle this, we just have to set the `editing` mode state variable to `false` after deleting the player.
+
+```
+  const deletePlayer = (id) => {
+    setPlayers(players.filter((player) => player.id !== id));
+    setEditing(false);
+  };
 ```
